@@ -52,6 +52,8 @@ This system allowed me to overcome significant challenges when it came to introd
 
 Although I have touched on the class-object system I've used, I'll elaborate further on how this system is used for the purpose of data abstraction.
 
+Below is an example of this system at use. This function is used to select an aircraft. When the selection is made, the player is assigned to a plane (under this system, each plane is an object):
+
 ```
 def choose_plane():
     # promts for user imput, repromts when the choice in invalid. If the choice is succesful, the player is assigned a plane.
@@ -81,6 +83,8 @@ def choose_plane():
             break
     return player
 ```
+This function crucially displays the retrieval of data by allocating objects to the player when called upon. 
+
 
 - Include code segments that show where data is being stored and where data is being retrived and accompanying explanation.
 - Identify what the abstracted data represents in your program
