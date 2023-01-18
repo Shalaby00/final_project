@@ -1,10 +1,7 @@
 # final_project
 (don't play hard mode)
 
-
-In the README file for your project, use Markdown to include all of the following information:
-* A video of your program running (1 min or less, no voiceover)
-
+[acm.webm](https://user-images.githubusercontent.com/106011563/213141804-0eff0eac-8eb2-4ab4-b7fd-535b27a9adc7.webm)
 
 * Program Summary:
 
