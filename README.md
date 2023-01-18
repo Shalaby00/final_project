@@ -3,19 +3,22 @@
 
 
 In the README file for your project, use Markdown to include all of the following information:
-* A video of your program running (1min or less, no voiceover)
+* A video of your program running (1 min or less, no voiceover)
 
 
-* Summarize program's functionality (what does it do?) and purpose (why does it exist and/or who is it for?):
+* Program Summary:
 
 Hello. TBCB Dogfighters is a turn based, card based, WWII dogfighting simulator. In this game, you can play against a computer controlled opponent or another player. Your goal is to use a selection of cards to successfully down your opponent. There are three potential endgame scenarios. You can win by shooting down your foe, you can draw by disengaging, and you can lose if your foe successfully shoots you down.
 
 The purpose of this game is giving me an opportunity to explore class-object oriented programming. Additionally, I wanted to challenge myself with the task of creating a competitive digital opponnent. Although this product has no practical use, it serves as a good sandbox for experimenting with my cs knowledge so far, allowing me to embark on my own path of discovery.
 
-* A description, with code segments, of a "breakthrough moment" in which you solved a particularly difficult problem, learned to do something new, or independently overcame being stuck
+* "Breakthrough Moment"
+
+The largest turning point in my process revolved around adopting a class-object system to facilitate gameplay. I established each plane as it's own object, allowing me to store data belonging to each plane in an efficient manner. Using this system, I can minimize the amount of information I have to pass between different functions. 
 
 Let's take the following example:
-```class Foe():
+```
+class Foe():
     def __init__(self):
 
         self.name= 'FW-190'
@@ -28,22 +31,26 @@ Let's take the following example:
         self.h=1200
         self.v=400
 ```
-Now, I can pass these values through one of my cards:
+After I've assigned this object to a player, I can pass the values stored within the object through one of my functions:
 
 ```
-    def level_off(player):
-        player.v = 80*(player.v**0.3+(1/player.v))
-        print(player.name, end="")
-        print(" leveled off!\n")
-        return 0
+def climb(player):
+    # the player climbs for 30 seconds, hence their new altitude is determined by their climb rate
+    player.h = player.h + 30*(player.c)
+    # climbing comes with a marginal loss of speed
+    player.v = 0.95*player.v
+    print(player.name, end="")
+    print(" started climbing...\n")
+    return 0
 ```
-    
-As the speed of a player increases, this logarithmic function makes sure that this card's effects don't compound. As this card is played at high speeds, it becomes less effective.
+Instead of taking an argument for each variable, I simply have to pass the function an object. Hence, I can manipulate the data stored within each object without having to resort to verbose and convoluted code for modifying each plane's parameters.
+
+This system allowed me to overcome significant challenges when it came to introducing plane selections and pvp mode. Ultimately, it enabled me to use the same 'cards' for all of my players, regardless of their aricraft. Both human and computer opponents now share the same set of move functions, drastically simplifying my code. 
+
 
 * An explanation of data abstraction as it is used in your program.
 
-
-
+Although I have touched on the class-object system I've used, I'll elaborate further on how this system is used for the purpose of data abstraction.
 
 ```
 def choose_plane():
@@ -74,6 +81,7 @@ def choose_plane():
             break
     return player
 ```
+
 - Include code segments that show where data is being stored and where data is being retrived and accompanying explanation.
 - Identify what the abstracted data represents in your program
 - Explain how the selected abstraction manages complexity in your program code (why your program code could not be written, or how it would be written differently, if you did not abstract the data in the way you did)
