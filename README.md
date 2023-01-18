@@ -80,9 +80,32 @@ def choose_plane():
             break
     return player
 ```
-This function crucially displays the retrieval of data by allocating objects to the player when called upon. Each object contains variables that keep track of the plane's climb rate, top speed, airspeed, altitude, and ammo reserves. The objects enable me to store the data for later use, without having to redifine each variable for every function.
+This function crucially displays the retrieval of data by allocating objects to the player when called upon. Each object contains variables that keep track of the plane's climb rate, top speed, airspeed, altitude, and ammo reserves. The storage of the data is facilitated by classes, such as the following:
 
-- Include code segments that show where data is being stored and where data is being retrived and accompanying explanation.
+```
+class P51():
+    def __init__(self):
+        self.name= 'You'
+        self.s=698
+        # ^ the top speed
+        self.c=18
+        # ^ the climb rate
+        self.a=2080
+        # ^ the # of initial ammo
+        self.m=2
+        # ^ ammo spending multiplier
+
+        self.l= self.a
+        # ^ ammo left
+        self.h=1800
+        # ^ starting alt. (active)
+        self.v=400
+        # ^ spawning speed (active)
+```
+
+The object enables me to store the data for later use, without having to redifine each variable for every function, ultimately reducing the complexity of my code. In the absence of such a system, it would be incredibly difficult to use the same 'card' functions for both the player and their opponent.
+
+
 
 
 - Explain how the selected abstraction manages complexity in your program code (why your program code could not be written, or how it would be written differently, if you did not abstract the data in the way you did)
