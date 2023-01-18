@@ -42,6 +42,44 @@ As the speed of a player increases, this logarithmic function makes sure that th
 
 * An explanation of data abstraction as it is used in your program.
 
+
+
+
+```
+def choose_plane():
+    # promts for user imput, repromts when the choice in invalid. If the choice is succesful, the player is assigned a plane.
+    while True:
+        try:
+            plane=int(input("\nChoose your plane:\n    1. P-47D-25\n    2. P-51D-5\n    3. Spitfire F Mk. IX\n    4. La-7\n    5. View stats\nChoice (please input a number):"))
+            if plane ==1:
+                player = P47()
+            if plane ==2:
+                player = P51()
+            if plane ==3:
+                player = Spitfire()
+            if plane ==4:
+                player = La7()
+            if plane ==5:
+                # if a player wishes to view the stats, the statcards are printed and the choice selection process starts over.
+                print_stats()
+                time.sleep(1)
+                player = choose_plane()
+        except ValueError:
+            print("\nPlease choose an option by typing a number between 1 and 5.")
+            continue
+        if plane > 5 or plane < 1:
+            print("\nPlease choose an option by typing a number between 1 and 5.")
+            continue
+        else:
+            break
+    return player
+```
+- Include code segments that show where data is being stored and where data is being retrived and accompanying explanation.
+- Identify what the abstracted data represents in your program
+- Explain how the selected abstraction manages complexity in your program code (why your program code could not be written, or how it would be written differently, if you did not abstract the data in the way you did)
+
+* An explanation of procedural abstraction as it is used in your program.
+
 ```
 def guns_on(player, player2):
     global game_over
@@ -73,44 +111,6 @@ def guns_on(player, player2):
         time.sleep(0.5)
         print(player.name, "can't get a clear shot")
     return 0
-```
-
-
-
-- Include code segments that show where data is being stored and where data is being retrived and accompanying explanation.
-- Identify what the abstracted data represents in your program
-- Explain how the selected abstraction manages complexity in your program code (why your program code could not be written, or how it would be written differently, if you did not abstract the data in the way you did)
-
-* An explanation of procedural abstraction as it is used in your program.
-
-```
-def choose_plane():
-    # promts for user imput, repromts when the choice in invalid. If the choice is succesful, the player is assigned a plane.
-    while True:
-        try:
-            plane=int(input("\nChoose your plane:\n    1. P-47D-25\n    2. P-51D-5\n    3. Spitfire F Mk. IX\n    4. La-7\n    5. View stats\nChoice (please input a number):"))
-            if plane ==1:
-                player = P47()
-            if plane ==2:
-                player = P51()
-            if plane ==3:
-                player = Spitfire()
-            if plane ==4:
-                player = La7()
-            if plane ==5:
-                # if a player wishes to view the stats, the statcards are printed and the choice selection process starts over.
-                print_stats()
-                time.sleep(1)
-                player = choose_plane()
-        except ValueError:
-            print("\nPlease choose an option by typing a number between 1 and 5.")
-            continue
-        if plane > 5 or plane < 1:
-            print("\nPlease choose an option by typing a number between 1 and 5.")
-            continue
-        else:
-            break
-    return player
 ```
 
 - Include a single code segment containing:
