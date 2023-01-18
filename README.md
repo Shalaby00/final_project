@@ -80,11 +80,11 @@ def choose_plane():
             break
     return player
 ```
-This function crucially displays the retrieval of data by allocating objects to the player when called upon. 
-
+This function crucially displays the retrieval of data by allocating objects to the player when called upon. Each object contains variables that keep track of the plane's climb rate, top speed, airspeed, altitude, and ammo reserves. The objects enable me to store the data for later use, without having to redifine each variable for every function.
 
 - Include code segments that show where data is being stored and where data is being retrived and accompanying explanation.
-- Identify what the abstracted data represents in your program
+
+
 - Explain how the selected abstraction manages complexity in your program code (why your program code could not be written, or how it would be written differently, if you did not abstract the data in the way you did)
 
 * An explanation of procedural abstraction as it is used in your program.
