@@ -3,13 +3,13 @@
 
 [acm.webm](https://user-images.githubusercontent.com/106011563/213141804-0eff0eac-8eb2-4ab4-b7fd-535b27a9adc7.webm)
 
-* Program Summary:
+## Program Summary:
 
 Hello. TBCB Dogfighters is a turn based, card based, WWII dogfighting simulator. In this game, you can play against a computer controlled opponent or another player. Your goal is to use a selection of cards to successfully down your opponent. There are three potential endgame scenarios. You can win by shooting down your foe, you can draw by disengaging, and you can lose if your foe successfully shoots you down.
 
 The purpose of this game is giving me an opportunity to explore class-object oriented programming. Additionally, I wanted to challenge myself with the task of creating a competitive digital opponnent. Although this product has no practical use, it serves as a good sandbox for experimenting with my cs knowledge so far, allowing me to embark on my own path of discovery.
 
-* "Breakthrough Moment"
+## "Breakthrough Moment"
 
 The largest turning point in my process revolved around adopting a class-object system to facilitate gameplay. I established each plane as it's own object, allowing me to store data belonging to each plane in an efficient manner. Using this system, I can minimize the amount of information I have to pass between different functions. 
 
@@ -45,7 +45,7 @@ Instead of taking an argument for each variable, I simply have to pass the funct
 This system allowed me to overcome significant challenges when it came to introducing plane selections and pvp mode. Ultimately, it enabled me to use the same 'cards' for all of my players, regardless of their aricraft. Both human and computer opponents now share the same set of move functions, drastically simplifying my code. 
 
 
-* Data Abstraction
+## Data Abstraction
 
 Although I have touched on the class-object system I've used, I'll elaborate further on how this system is used for the purpose of data abstraction.
 
@@ -106,7 +106,7 @@ class P51():
 The object enables me to store the data for later use, without having to redifine each variable for every function, ultimately reducing the complexity of my code. In the absence of such a system, it would be incredibly difficult to use the same 'card' functions for both the player and their opponent.
 
 
-* Procedural Abstraction
+## Procedural Abstraction
 
 This is an example of procedural abstraction. This function hosts numerous algorithms, revolving around sequencing and selection. This function takes two arguments (i.e. , the two player objects), allowing me to manipulate the data belonging to each of these objects. This function contains conditional statements that form the building blocks of my selection-oriented algorithms. For example, the ability of a player to take a shot is dependent on the difference in altitude between them and their foe, hence I use boolean expressions and an else-if sequence to determine if a shot is possible. Moreover, the likelyhood of landing a shot is dependent on wether hard mode is engaged. In order to do this I use a global variable to represent whether hard mode is engaged or not. Then I use some conditional statements to alter the likelyhood of making a shot based on the game mode.
 
