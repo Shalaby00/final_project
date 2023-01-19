@@ -6,13 +6,10 @@
 ## Program Summary:
 
 TBCB Dogfighters is a turn based, card based, WWII dogfighting simulator. In this game, you can play against a computer controlled opponent or another player. Your goal is to use a selection of cards to successfully down your opponent. There are three potential endgame scenarios. You can win by shooting down your foe, you can draw by disengaging, and you can lose if your foe successfully shoots you down.
-
-The purpose of this game is giving me an opportunity to explore class-object oriented programming. Additionally, I wanted to challenge myself with the task of creating a competitive digital opponnent. Although this product has no practical use, it serves as a good sandbox for experimenting with my cs knowledge so far, allowing me to embark on my own path of discovery.
+The purpose of this game is giving me an opportunity to explore class-object oriented programming. Additionally, I wanted to challenge myself with the task of creating a competitive digital opponent. Although this product has no practical use, it serves as a good sandbox for experimenting with my CS knowledge so far, allowing me to embark on my own path of discovery.
 
 ## "Breakthrough Moment"
-
-The largest turning point in my process revolved around adopting a class-object system to facilitate gameplay. I established each plane as it's own object, allowing me to store data belonging to each plane in an efficient manner. Using this system, I can minimize the amount of information I have to pass between different functions. 
-
+The largest turning point in my process revolved around adopting a class-object system to facilitate gameplay. I established each plane as its own object, allowing me to store data belonging to each plane in an efficient manner. Using this system, I can minimize the amount of information I have to pass between different functions.
 Let's take the following example:
 ```
 class Foe():
@@ -28,9 +25,10 @@ class Foe():
         self.h=1200
         self.v=400
 ```
-After I've assigned this object to a player, I can pass the values stored within the object through one of my functions:
 
+After I've assigned this object to a player, I can pass the values stored within the object through one of my functions:
 ```
+
 def climb(player):
     # the player climbs for 30 seconds, hence their new altitude is determined by their climb rate
     player.h = player.h + 30*(player.c)
@@ -40,20 +38,17 @@ def climb(player):
     print(" started climbing...\n")
     return 0
 ```
+
 Instead of taking an argument for each variable, I simply have to pass the function an object. Hence, I can manipulate the data stored within each object without having to resort to verbose and convoluted code for modifying each plane's parameters.
-
-This system allowed me to overcome significant challenges when it came to introducing plane selections and pvp mode. Ultimately, it enabled me to use the same 'cards' for all of my players, regardless of their aricraft. Both human and computer opponents now share the same set of move functions, drastically simplifying my code. 
-
+This system allowed me to overcome significant challenges when it came to introducing plane selections and pvp mode. Ultimately, it enabled me to use the same 'cards' for all of my players, regardless of their aircraft. Both human and computer opponents now share the same set of move functions, drastically simplifying my code.
 
 ## Data Abstraction
-
 Although I have touched on the class-object system I've used, I'll elaborate further on how this system is used for the purpose of data abstraction.
-
 Below is an example of this system at use. This function is used to select an aircraft. When the selection is made, the player is assigned to a plane (under this system, each plane is an object):
 
 ```
 def choose_plane():
-    # promts for user imput, repromts when the choice in invalid. If the choice is succesful, the player is assigned a plane.
+    # prompts for user input, reprints when the choice in invalid. If the choice is successful, the player is assigned a plane.
     while True:
         try:
             plane=int(input("\nChoose your plane:\n    1. P-47D-25\n    2. P-51D-5\n    3. Spitfire F Mk. IX\n    4. La-7\n    5. View stats\nChoice (please input a number):"))
@@ -66,7 +61,7 @@ def choose_plane():
             if plane ==4:
                 player = La7()
             if plane ==5:
-                # if a player wishes to view the stats, the statcards are printed and the choice selection process starts over.
+                # If a player wishes to view the stats, the stat cards are printed and the choice selection process starts over.
                 print_stats()
                 time.sleep(1)
                 player = choose_plane()
@@ -80,6 +75,7 @@ def choose_plane():
             break
     return player
 ```
+
 This function crucially displays the retrieval of data by allocating objects to the player when called upon. Each object contains variables that keep track of the plane's climb rate, top speed, airspeed, altitude, and ammo reserves. The storage of the data is facilitated by classes, such as the following:
 
 ```
@@ -103,12 +99,11 @@ class P51():
         # ^ spawning speed (active)
 ```
 
-The object enables me to store the data for later use, without having to redifine each variable for every function, ultimately reducing the complexity of my code. In the absence of such a system, it would be incredibly difficult to use the same 'card' functions for both the player and their opponent.
-
+The object enables me to store the data for later use, without having to redefine each variable for every function, ultimately reducing the complexity of my code. In the absence of such a system, it would be incredibly difficult to use the same 'card' functions for both the player and their opponent.
 
 ## Procedural Abstraction
 
-This is an example of procedural abstraction. This function hosts numerous algorithms, revolving around sequencing and selection. This function takes two arguments (i.e. , the two player objects), allowing me to manipulate the data belonging to each of these objects. This function contains conditional statements that form the building blocks of my selection-oriented algorithms. For example, the ability of a player to take a shot is dependent on the difference in altitude between them and their foe, hence I use boolean expressions and an else-if sequence to determine if a shot is possible. Moreover, the likelyhood of landing a shot is dependent on whether hard mode is engaged. In order to do this I use a global variable to represent whether hard mode is engaged or not. Then I use some conditional statements to alter the likelyhood of making a shot based on the game mode.
+This is an example of procedural abstraction. This function hosts numerous algorithms, revolving around sequencing and selection. This function takes two arguments (i.e. , the two player objects), allowing me to manipulate the data belonging to each of these objects. This function contains conditional statements that form the building blocks of my selection-oriented algorithms. For example, the ability of a player to take a shot is dependent on the difference in altitude between them and their foe, hence I use boolean expressions and an else-if sequence to determine if a shot is possible. Moreover, the likelihood of landing a shot is dependent on whether hard mode is engaged. In order to do this I use a global variable to represent whether hard mode is engaged or not. Then I use some conditional statements to alter the likelihood of making a shot based on the game mode.
 
 ```
 def guns_on(player, player2):
@@ -143,11 +138,11 @@ def guns_on(player, player2):
     return 0
 ```
 
-However, because this function results in a direct change to the course of the game I didn't feel the need to return anything. However, in another function I return a value to the main function. For example: 
+However, because this function results in a direct change to the course of the game I didn't feel the need to return anything. However, in another function I return a value to the main function. For example:
 
 ```
 def tutorial_choice():
-    # promts for user imput, repromts when the choice in invalid. If the choice is succesful, the game plays or skips the tutorial
+    # prompts for user input, reprints when the choice in invalid. If the choice is successful, the game plays or skips the tutorial
     while True:
         try:
             tut = int(input("\nWould you like to skip the tutorial?\n    1. Yes\n    2. No\nChoice (please input a number):"))
@@ -162,17 +157,17 @@ def tutorial_choice():
     return tut
 ```
 
-This function uses an iterative algorithm to repropmpt the user for input when the user inputs invalid values. Once the user makes an acceptable choice, that value is returned to the main function, and is used as such:
+This function uses an iterative algorithm to prompt the user for input when the user inputs invalid values. Once the user makes an acceptable choice, that value is returned to the main function, and is used as such:
 
 ```
 def main():
-    # each global variable represents a game setting that can be tripped by any function, effecting the entirety of the game.
+    # Each global variable represents a game setting that can be tripped by any function, affecting the entirety of the game.
     global game_over
     global easy_mode
     global hard_mode
     global pvp_mode
     intro()
-    # this code enables for choosing tutorial settings, pvp modes, and game mode.
+    # This code enables choosing tutorial settings, pvp modes, and game mode.
     tut= tutorial_choice()
     if (tut == 2):
         tutorial()
@@ -183,6 +178,7 @@ def main():
     ...
 ```
 
-This function is called when the time comes for the user to choose whether or not to do the tutorial, making sure that the user picks a valid course of action. 
 
-Overall, procedural abstraction drastically simplifies my code. Since my game is card based, I can represent each card as a specific function (similar to the "GUNs ON!!" card shown above). Moreover, when running my main fucntion, I've chosen to abstract each phase of my introduction, including the mode choices that the player has to make.
+This function is called when the time comes for the user to choose whether or not to do the tutorial, making sure that the user picks a valid course of action.
+
+Overall, procedural abstraction drastically simplifies my code. Since my game is card based, I can represent each card as a specific function (similar to the '`GUNs ON!!" card shown above). Moreover, when running my main function, I've chosen to abstract each phase of my introduction, including the mode choices that the player has to make.
