@@ -108,7 +108,7 @@ The object enables me to store the data for later use, without having to redifin
 
 ## Procedural Abstraction
 
-This is an example of procedural abstraction. This function hosts numerous algorithms, revolving around sequencing and selection. This function takes two arguments (i.e. , the two player objects), allowing me to manipulate the data belonging to each of these objects. This function contains conditional statements that form the building blocks of my selection-oriented algorithms. For example, the ability of a player to take a shot is dependent on the difference in altitude between them and their foe, hence I use boolean expressions and an else-if sequence to determine if a shot is possible. Moreover, the likelyhood of landing a shot is dependent on wether hard mode is engaged. In order to do this I use a global variable to represent whether hard mode is engaged or not. Then I use some conditional statements to alter the likelyhood of making a shot based on the game mode.
+This is an example of procedural abstraction. This function hosts numerous algorithms, revolving around sequencing and selection. This function takes two arguments (i.e. , the two player objects), allowing me to manipulate the data belonging to each of these objects. This function contains conditional statements that form the building blocks of my selection-oriented algorithms. For example, the ability of a player to take a shot is dependent on the difference in altitude between them and their foe, hence I use boolean expressions and an else-if sequence to determine if a shot is possible. Moreover, the likelyhood of landing a shot is dependent on whether hard mode is engaged. In order to do this I use a global variable to represent whether hard mode is engaged or not. Then I use some conditional statements to alter the likelyhood of making a shot based on the game mode.
 
 ```
 def guns_on(player, player2):
@@ -143,7 +143,7 @@ def guns_on(player, player2):
     return 0
 ```
 
-However, because this function results in a direct change to the course of the game I don't feel the need to return anything. However, in another function I return a value to the main function.
+However, because this function results in a direct change to the course of the game I didn't feel the need to return anything. However, in another function I return a value to the main function. For example: 
 
 ```
 def tutorial_choice():
@@ -162,13 +162,27 @@ def tutorial_choice():
     return tut
 ```
 
-This function uses an iterative algorithm to repropmpt the user for input when the user inputs invalid values. 
+This function uses an iterative algorithm to repropmpt the user for input when the user inputs invalid values. Once the user makes an acceptable choice, that value is returned to the main function, and is used as such:
 
+```
+def main():
+    # each global variable represents a game setting that can be tripped by any function, effecting the entirety of the game.
+    global game_over
+    global easy_mode
+    global hard_mode
+    global pvp_mode
+    intro()
+    # this code enables for choosing tutorial settings, pvp modes, and game mode.
+    tut= tutorial_choice()
+    if (tut == 2):
+        tutorial()
+    pvp()
+    
+    ...
+    etc.
+    ...
+```
 
+This function is called when the time comes for the user to choose whether or not to do the tutorial, making sure that the user picks a valid course of action. 
 
-A procedure with a parameter (i.e., takes an argument) and includes an algorithm that uses sequencing, selection, and iteration and returns a value that depends on the arguments given when the procedure is called
-
-
-* and is called from elsewhere in the program
-- Explain how the algorithm in the above code segment functions and why it is important for the purpose of your program
-- Explain how the procedural abstraction helps to manage complexity in your program (be specific!)
+Overall, procedural abstraction drastically simplifies my code. Since my game is card based, I can represent each card as a specific function (similar to the "GUNs ON!!" card shown above). Moreover, when running my main fucntion, I've chosen to abstract each phase of my introduction, including the mode choices that the player has to make.
