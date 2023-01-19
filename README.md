@@ -1,5 +1,5 @@
 # final_project
-(don't play hard mode)
+(don't play hard mode, it's too hard)
 
 [acm.webm](https://user-images.githubusercontent.com/106011563/213141804-0eff0eac-8eb2-4ab4-b7fd-535b27a9adc7.webm)
 
@@ -108,6 +108,8 @@ The object enables me to store the data for later use, without having to redifin
 
 * Procedural Abstraction
 
+This is an example of procedural abstraction. This function hosts numerous algorithms, revolving around sequencing and selection. This function takes two arguments (i.e. , the two player objects), allowing me to manipulate the data belonging to each of these objects. This function contains conditional statements that form the building blocks of my selection-oriented algorithms. For example, the ability of a player to take a shot is dependent on the difference in altitude between them and their foe, hence I use boolean expressions and an else-if sequence to determine if a shot is possible. Moreover, the likelyhood of landing a shot is dependent on wether hard mode is engaged. In order to do this I use a global variable to represent whether hard mode is engaged or not. Then I use some conditional statements to alter the likelyhood of making a shot based on the game mode.
+
 ```
 def guns_on(player, player2):
     global game_over
@@ -140,6 +142,30 @@ def guns_on(player, player2):
         print(player.name, "can't get a clear shot")
     return 0
 ```
+
+However, because this function results in a direct change to the course of the game I don't feel the need to return anything. However, in another function I return a value to the main function.
+
+```
+def tutorial_choice():
+    # promts for user imput, repromts when the choice in invalid. If the choice is succesful, the game plays or skips the tutorial
+    while True:
+        try:
+            tut = int(input("\nWould you like to skip the tutorial?\n    1. Yes\n    2. No\nChoice (please input a number):"))
+        except ValueError:
+            print("\nPlease choose an option by typing 1 or 2.")
+            continue
+        if tut > 2 or tut < 1:
+            print("\nPlease choose an option by typing 1 or 2.")
+            continue
+        else:
+            break
+    return tut
+```
+
+This function uses an iterative algorithm to repropmpt the user for input when the user inputs invalid values. 
+
+
+
 A procedure with a parameter (i.e., takes an argument) and includes an algorithm that uses sequencing, selection, and iteration and returns a value that depends on the arguments given when the procedure is called
 
 
