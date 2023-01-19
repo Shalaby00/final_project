@@ -181,4 +181,4 @@ def main():
 
 This function is called when the time comes for the user to choose whether or not to do the tutorial, making sure that the user picks a valid course of action.
 
-Overall, procedural abstraction drastically simplifies my code. Since my game is card based, I can represent each card as a specific function (similar to the '`GUNs ON!!" card shown above). Moreover, when running my main function, I've chosen to abstract each phase of my introduction, including the mode choices that the player has to make.
+Overall, procedural abstraction drastically simplifies my code. Since my game is card based, I can represent each card as a specific function (similar to the " GUNs ON!!" card shown above). Moreover, when running my main function, I've chosen to abstract each phase of my introduction, including the mode choices that the player has to make.
