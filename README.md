@@ -5,7 +5,7 @@
 
 ## Program Summary:
 
-Hello. TBCB Dogfighters is a turn based, card based, WWII dogfighting simulator. In this game, you can play against a computer controlled opponent or another player. Your goal is to use a selection of cards to successfully down your opponent. There are three potential endgame scenarios. You can win by shooting down your foe, you can draw by disengaging, and you can lose if your foe successfully shoots you down.
+TBCB Dogfighters is a turn based, card based, WWII dogfighting simulator. In this game, you can play against a computer controlled opponent or another player. Your goal is to use a selection of cards to successfully down your opponent. There are three potential endgame scenarios. You can win by shooting down your foe, you can draw by disengaging, and you can lose if your foe successfully shoots you down.
 
 The purpose of this game is giving me an opportunity to explore class-object oriented programming. Additionally, I wanted to challenge myself with the task of creating a competitive digital opponnent. Although this product has no practical use, it serves as a good sandbox for experimenting with my cs knowledge so far, allowing me to embark on my own path of discovery.
 
