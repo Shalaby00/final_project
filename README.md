@@ -45,7 +45,7 @@ Instead of taking an argument for each variable, I simply have to pass the funct
 This system allowed me to overcome significant challenges when it came to introducing plane selections and pvp mode. Ultimately, it enabled me to use the same 'cards' for all of my players, regardless of their aricraft. Both human and computer opponents now share the same set of move functions, drastically simplifying my code. 
 
 
-* An explanation of data abstraction as it is used in your program.
+* Data Abstraction
 
 Although I have touched on the class-object system I've used, I'll elaborate further on how this system is used for the purpose of data abstraction.
 
@@ -106,11 +106,7 @@ class P51():
 The object enables me to store the data for later use, without having to redifine each variable for every function, ultimately reducing the complexity of my code. In the absence of such a system, it would be incredibly difficult to use the same 'card' functions for both the player and their opponent.
 
 
-
-
-- Explain how the selected abstraction manages complexity in your program code (why your program code could not be written, or how it would be written differently, if you did not abstract the data in the way you did)
-
-* An explanation of procedural abstraction as it is used in your program.
+* Procedural Abstraction
 
 ```
 def guns_on(player, player2):
@@ -144,15 +140,9 @@ def guns_on(player, player2):
         print(player.name, "can't get a clear shot")
     return 0
 ```
+A procedure with a parameter (i.e., takes an argument) and includes an algorithm that uses sequencing, selection, and iteration and returns a value that depends on the arguments given when the procedure is called
 
-- Include a single code segment containing:
-* A procedure
-- with a parameter (i.e., takes an argument)
-* and includes an algorithm
-- that uses sequencing, selection, and iteration
-* and returns a value
-- that depends on the arguments given when the procedure is called
+
 * and is called from elsewhere in the program
 - Explain how the algorithm in the above code segment functions and why it is important for the purpose of your program
 - Explain how the procedural abstraction helps to manage complexity in your program (be specific!)
-
